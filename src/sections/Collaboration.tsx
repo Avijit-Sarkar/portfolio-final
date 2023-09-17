@@ -15,7 +15,11 @@ const Collaboration = () => {
     offset: ["start end", "end start"],
   });
   const scale = useTransform(scrollYProgress, [0.1, 0.5], [1, 1.8]);
-  const fadeIn = useTransform(scrollYProgress, [0.5, 0.75], [0, 1.2]);
+  const finalTextOpacity = useTransform(
+    scrollYProgress,
+    [0.5, 0.7, 0.71, 0.72, 0.75, 0.8, 1],
+    [0, 0.3, 0.5, 0.6, 1, 1, 0]
+  );
   const fadeOut = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const fadeOutimg = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
   const opacity = useTransform(scrollYProgress, [0.8, 0.9], [1, 0]);
@@ -65,12 +69,10 @@ const Collaboration = () => {
                   className="h-auto lg:hidden rounded-b-md inline-block max-h-none w-[60vw]"
                 />
               </motion.div>
-              <motion.div
-                style={{ opacity: fadeIn }}
-                className="w-full h-full flex justify-center absolute inset-0"
-              >
+              <div className="w-full h-full flex justify-center absolute inset-0">
                 <motion.p
                   style={{
+                    opacity: finalTextOpacity,
                     scale: finalTextScale,
                     y: "-50%",
                     x: "-50%",
@@ -81,7 +83,7 @@ const Collaboration = () => {
                   <br />
                   Experience.
                 </motion.p>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
