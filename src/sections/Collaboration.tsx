@@ -1,11 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import {
-  useScroll,
-  useTransform,
-  motion,
-  useMotionTemplate,
-} from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useRef } from "react";
 
 const Collaboration = () => {
@@ -23,7 +18,7 @@ const Collaboration = () => {
   const fadeOut = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const fadeOutimg = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
   const opacity = useTransform(scrollYProgress, [0.8, 0.9], [1, 0]);
-  const finalTextScale = useTransform(scrollYProgress, [0.8, 0.9], [1, 0.7]);
+  const finalTextScale = useTransform(scrollYProgress, [0.8, 1], [1, 0.7]);
 
   const position = useTransform(scrollYProgress, (pos) => {
     return pos <= 0.4 ? "#0d0d0d" : "#000000";
@@ -48,7 +43,7 @@ const Collaboration = () => {
             <motion.div style={{ scale, opacity }} className="origin-top">
               <motion.div
                 style={{ backgroundColor: position, boxShadow: position2 }}
-                className="h-full rounded-md transition-all ease-in-out"
+                className="h-[60vh] w-[60vw] lg:w-[50vw] rounded-md transition-all ease-in-out relative flex flex-col overflow-hidden"
               >
                 <motion.div
                   style={{ opacity: fadeOut }}
@@ -61,12 +56,8 @@ const Collaboration = () => {
                 <motion.img
                   style={{ opacity: fadeOutimg }}
                   src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-                  className="h-auto hidden lg:inline-block rounded-b-md max-h-none w-[50vw]"
-                />
-                <motion.img
-                  style={{ opacity: fadeOutimg }}
-                  src="https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                  className="h-auto lg:hidden rounded-b-md inline-block max-h-none w-[60vw]"
+                  alt=""
+                  className="object-cover w-full h-full object-left"
                 />
               </motion.div>
               <div className="w-full h-full flex justify-center absolute inset-0">
