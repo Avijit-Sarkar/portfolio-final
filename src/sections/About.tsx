@@ -114,13 +114,9 @@ const About = () => {
     pos >= 1 ? "relative" : "fixed"
   );
 
-  const avatarOpacity = useTransform(scrollYProgress, (pos) =>
-    pos >= animationOrder.fadeInEnd ? 1 : 0
-  );
-
   return (
-    <section ref={targetRef}>
-      <div className="relative h-[800vh]">
+    <section ref={targetRef} className="">
+      <div className="relative h-[800vh] z-20  bg-black pb-64 shadow-2xl shadow-black">
         <div className="sticky top-1/2 flex origin-center -translate-y-1/2 justify-center">
           <motion.div
             className="translate-x-centered-offset absolute left-1/2 top-1/2 flex h-[60vh] w-full lg:w-[50vw] -translate-y-1/2 scale-[var(--scale)] flex-col items-center justify-center "
@@ -150,7 +146,7 @@ const About = () => {
               opacity: endTextOpacity,
               "--y": endTexty,
             })}
-            className="translate-y-centered-offset absolute top-1/2 left-[20px] w-[200px] md:w-[300px] pl-6 md:pl-16 text-2xl leading-tight font-semibold text-white"
+            className="translate-y-centered-offset absolute top-1/2 left-[20px] w-[200px] md:w-[300px] pl-6 md:pl-16 text-xl md:text-2xl leading-tight font-semibold text-white"
           >
             <span className="text-primary">Built for flow</span>
             <br />
