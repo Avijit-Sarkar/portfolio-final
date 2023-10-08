@@ -13,7 +13,7 @@ const Video = () => {
 
   const opacity = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.8, 0.9],
+    [0, 0.2, 0.7, 0.9],
     [0, 1, 1, 0]
   );
   const position = useTransform(scrollYProgress, (pos) => {
@@ -40,7 +40,7 @@ const Video = () => {
   return (
     <motion.section
       style={{ opacity }}
-      className="z-10 h-[600vh]" // Change the height to "h-screen" to cover full height
+      className="z-10 h-[600vh]"
       ref={targetRef}
     >
       <motion.div style={{ position }} className="w-screen top-0 h-screen">
@@ -49,7 +49,7 @@ const Video = () => {
           muted
           playsInline
           preload="true"
-          className="w-full h-full object-cover" // Use "object-cover" to make the video cover the div
+          className="w-full h-full object-cover"
           loop
           src="https://framerusercontent.com/modules/assets/de1SZVgW6x8oriFKmGD2vCLl4M~QgE11NLqSikToAlO4zGwAzyGWgrXLn2cqTQMkVVJmig.mp4"
         ></video>

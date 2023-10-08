@@ -93,17 +93,17 @@ const Services = () => {
   return (
     <section className="mx-auto max-w-6xl mt-[-40vh] z-[30] bg-black px-4">
       {/* Top section */}
-      <div className="flex flex-col justify-center pb-20">
-        <h1 className="mb-12 font-serif text-7xl">
+      <div className="flex flex-col justify-center">
+        <h1 className="font-serif text-6xl md:text-7xl">
           The joyful productivity app.
           <br />
-          <span className="text-gray-500 text-6xl">
+          <span className="text-gray-500 text-5xl md:text-6xl">
             Schedule time for todos, events, and contacts.
           </span>
         </h1>
       </div>
-      <div className="flex w-full items-start gap-20">
-        <div className="w-full py-[50vh]">
+      <div className="flex w-full items-start gap-2 md:gap-20">
+        <div className="w-full py-[45vh]">
           <ul>
             {features.map((feature) => (
               <li key={feature.id}>
@@ -112,7 +112,7 @@ const Services = () => {
             ))}
           </ul>
         </div>
-        <div className="sticky top-0 flex h-screen items-center w-full">
+        <div className="sticky top-0 flex h-screen items-center lg:p-10 w-full">
           <div className="relative aspect-square text-black w-full rounded-2xl">
             {features.map((feature) => (
               <FeatureCard id={feature.id} key={feature.id}>
