@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { AboutCard } from "@/components/about/AboutCard";
+import { AboutTitle } from "@/components/about/AboutTitle";
 import { stylesWithCssVar } from "@/lib/motion";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { GitBranchIcon } from "lucide-react";
@@ -22,6 +24,58 @@ const animationOrder = {
   endTextFadeInStart: 0.8,
   endTextFadeInEnd: 0.95,
 };
+
+const features = [
+  {
+    title: "Todo",
+    id: "1",
+
+    image:
+      "https://images.unsplash.com/photo-1692739843142-877be399d229?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  },
+  {
+    title: "Color",
+    id: "2",
+
+    image:
+      "https://images.unsplash.com/photo-1682685797366-715d29e33f9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  },
+  {
+    title: "Instantly",
+    id: "3",
+
+    image:
+      "https://images.unsplash.com/photo-1696961305234-c56d9af60e34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  },
+  {
+    title: "Track",
+    id: "4",
+
+    image:
+      "https://images.unsplash.com/photo-1692663664447-64d7e9a843f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
+  },
+  {
+    title: "Color",
+    id: "5",
+
+    image:
+      "https://images.unsplash.com/photo-1682685797366-715d29e33f9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  },
+  {
+    title: "Instantly",
+    id: "6",
+
+    image:
+      "https://images.unsplash.com/photo-1696961305234-c56d9af60e34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+  },
+  {
+    title: "Track",
+    id: "7",
+
+    image:
+      "https://images.unsplash.com/photo-1692663664447-64d7e9a843f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
+  },
+];
 
 const About = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -126,11 +180,45 @@ const About = () => {
               "--scale": scale,
             })}
           >
-            <img
-              src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-              className="object-cover w-full h-full object-left rounded-md"
-              alt="main-image"
-            />
+            <div className="flex w-full h-full bg-gray-600 rounded-md border-[0.5px] border-[#151515]/10">
+              <div className="w-[25%] bg-black rounded-l-md px-2 md:px-4 flex flex-col">
+                <div className="flex gap-2 items-center mt-5 p-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    className="w-6 h-6 text-white "
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                  </svg>
+                  <p className="text-md hidden md:inline-block">Breadit</p>
+                </div>
+                <div className="mb-5">
+                  <ul>
+                    {features.map((feature) => (
+                      <li key={feature.id}>
+                        <AboutTitle id={feature.id}>{feature.title}</AboutTitle>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="w-[75%] relative bg-[#131313] rounded-r-md">
+                {features.map((feature) => (
+                  <AboutCard id={feature.id} key={feature.id}>
+                    <img
+                      className="w-full h-full object-cover rounded-r-md"
+                      src={feature.image}
+                      alt={`Feature ${feature.id}`}
+                    />
+                  </AboutCard>
+                ))}
+              </div>
+            </div>
             <motion.span
               className="mt-5 block text-lg md:text-2xl text-white"
               style={{ opacity: newBranchOpacity2 }}
@@ -146,7 +234,7 @@ const About = () => {
               opacity: endTextOpacity,
               "--y": endTexty,
             })}
-            className="translate-y-centered-offset absolute top-1/2 left-[20px] w-[200px] md:w-[300px] pl-6 md:pl-16 text-xl md:text-2xl leading-tight font-semibold text-white"
+            className="translate-y-centered-offset absolute top-1/2 left-[20px] w-[200px] md:w-[400px] pl-6 md:pl-16 text-xl md:text-3xl leading-tight font-semibold text-white"
           >
             <span className="text-primary">Built for flow</span>
             <br />
@@ -159,7 +247,7 @@ const About = () => {
             "--y": paragraph1TranslateY,
             position,
           })}
-          className="translate-y-centered-offset top-1/2 left-[20px] w-[300px] pl-6 md:pl-16 text-2xl leading-tight font-semibold text-white"
+          className="translate-y-centered-offset top-1/2 left-[20px] w-[300px] md:w-[400px] pl-6 md:pl-16 text-xl md:text-3xl leading-tight font-semibold text-white"
         >
           Not only share code,
           <br />
@@ -171,7 +259,7 @@ const About = () => {
             "--y": paragraph2TranslateY,
             position,
           })}
-          className="translate-y-centered-offset top-1/2 right-[20px] w-[300px] pl-16  md:pl-0 md:pr-16 text-xl leading-tight font-semibold text-white"
+          className="translate-y-centered-offset top-1/2 right-[20px] w-[300px] md:w-[400px] pl-16  md:pl-0 md:pr-16 text-xl md:text-3xl leading-tight font-semibold text-white"
         >
           {`Sometimes it's not about code.`}
           <br />

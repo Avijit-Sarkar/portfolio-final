@@ -4,7 +4,7 @@ import React from "react";
 const CtaSection = () => {
   return (
     <div className="">
-      <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
+      <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-0">
         <div className="relative isolate overflow-hidden px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24">
           <svg
             viewBox="0 0 1024 1024"
@@ -50,9 +50,9 @@ const CtaSection = () => {
               </a>
             </div>
           </div>
-          <div className="relative mt-16 h-80 lg:mt-8">
+          <div className="relative mt-16 h-80 lg:mt-8 group">
             <img
-              className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+              className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10 transition-all duration-500 group-hover:scale-110"
               src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
               alt="App screenshot"
               width={1824}

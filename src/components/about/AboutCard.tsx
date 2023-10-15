@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { useFeatureStore } from "@/sections/feature/store";
 import React from "react";
-import { useFeatureStore } from "./store";
 
 type FeatureCardProps = {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ type FeatureCardProps = {
 type CardProps = {
   id: string;
 };
-export const FeatureCard = ({ children, id }: FeatureCardProps) => {
+export const AboutCard = ({ children, id }: FeatureCardProps) => {
   const inViewFeature = useFeatureStore((state) => state.inViewFeature);
 
   return (

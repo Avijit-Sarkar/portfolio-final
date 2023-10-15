@@ -28,8 +28,8 @@ const CustomLink: FC<CustomLinkProps> = ({ href, title }) => {
 const Footer = () => {
   return (
     <section className="bg-[#f1f1ef]">
-      <div className="container max-w-7xl min-h-screen w-screen  mx-auto flex-grow  flex flex-col">
-        <main className="flex flex-col w-full py-[20vh] text-black tracking-tight">
+      <div className="max-w-7xl w-screen  mx-auto flex-grow  flex flex-col">
+        <main className="flex flex-col w-full pt-[10vh] text-black tracking-tight">
           <div className="w-full h-full inline-block rounded-md ">
             <div className="flex-grow flex flex-wrap text-left md:px-8">
               <div className="lg:w-[30%] md:w-1/3 w-full px-4 ">
@@ -92,7 +92,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-start md:px-10 pt-[20vh] text-gray-500">
+          <div className="flex items-start px-4 md:px-10 py-[10vh] text-gray-500">
             <p>Being built remote on sunny shores around the world</p>
           </div>
         </main>
