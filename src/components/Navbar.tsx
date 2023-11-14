@@ -6,6 +6,8 @@ import { FC, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import MobileNav from "./MobileNav";
 import { useOnClickOutside } from "@/hook/use-on-click-outside";
+import AnimatedText from "./AnimatedText";
+import { motion, useScroll, useTransform } from "framer-motion";
 // import { Icons } from "./Icons";
 
 interface CustomLinkProps {
@@ -43,6 +45,12 @@ const Navbar = () => {
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
+  const targetRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["end start", "end end"],
+  });
+  const y = useTransform(scrollYProgress, [0, 0.1], ["-500%", "0%"]);
 
   const modelRef = useRef<HTMLButtonElement>(null);
 
@@ -52,7 +60,10 @@ const Navbar = () => {
 
   return (
     <div className="fixed w-full top-0 inset-x-0 h-fit  z-50 p-9">
-      <div className="h-full mx-auto flex items-center justify-between gap-2">
+      <div
+        ref={targetRef}
+        className="h-full mx-auto flex items-center justify-between gap-2"
+      >
         {/* logo */}
         <Link href={"/"} className="flex gap-2 items-center">
           <svg
@@ -67,14 +78,18 @@ const Navbar = () => {
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
-          <p className="text-xl font-bold">Breadit</p>
+          {/* <p className="text-xl font-bold">Breadit</p> */}
+          <AnimatedText text="Breadit" className="!text-xl font-bold" />
         </Link>
 
-        <nav className="hidden md:inline-block">
+        <motion.nav
+          style={{ y }}
+          className="hidden transition-all md:inline-block"
+        >
           <CustomLink href="/" title="Home" />
           <CustomLink href="/about" title="About" />
           <CustomLink href="/projects" title="Projects" />
-        </nav>
+        </motion.nav>
 
         <Link
           href={"/sign-in"}
